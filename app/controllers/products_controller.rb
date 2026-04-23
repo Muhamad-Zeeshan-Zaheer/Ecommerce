@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [ :edit, :update, :destroy ]
   def index
     @products = Product.all
   end
 
-  def show
-  end
+  
 
   def new
     @product = Product.new
@@ -16,7 +15,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path
     else
-      render :new , status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +25,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to products_path
     else
-      render :edit , status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +33,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name , :description , :price , :stock_quantity, :sku)
+    params.require(:product).permit(:name, :description, :price, :stock_quantity, :sku)
   end
 
   def set_product
