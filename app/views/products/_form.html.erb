@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white py-3 rounded-top-4">
+          <h4 class="mb-0">
+            <%= @product.new_record? ? "Add New Product" : "Edit Product" %>
+          </h4>
+        </div>
+
+        <%= form_with model: @product do |form| %>
+
+          <div class="card-body p-4">
+            <div class="row g-4">
+
+              <div class="col-md-6">
+                <%= form.label :name, class: "form-label fw-semibold" %>
+                <%= form.text_field :name,
+                    class: "form-control form-control-lg",
+                    placeholder: "Enter product name" %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label :sku, class: "form-label fw-semibold" %>
+                <%= form.text_field :sku,
+                    class: "form-control form-control-lg",
+                    placeholder: "Enter SKU code" %>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label :price, class: "form-label fw-semibold" %>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <%= form.number_field :price,
+                      step: 0.01,
+                      class: "form-control form-control-lg",
+                      placeholder: "0.00" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <%= form.label :stock_quantity, class: "form-label fw-semibold" %>
+                <%= form.number_field :stock_quantity,
+                    class: "form-control form-control-lg",
+                    placeholder: "Enter stock quantity" %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :description, class: "form-label fw-semibold" %>
+                <%= form.text_area :description,
+                    rows: 5,
+                    class: "form-control",
+                    placeholder: "Write short product description..." %>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card-footer bg-light border-0 p-4 d-flex justify-content-between">
+            <%= link_to "Cancel", products_path, class: "btn btn-outline-secondary px-4" %>
+
+            <%= form.submit @product.new_record? ? "Create Product" : "Update Product",
+                class: "btn btn-primary px-5 fw-semibold" %>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

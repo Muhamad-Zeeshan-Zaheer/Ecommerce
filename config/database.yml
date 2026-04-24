@@ -1,9 +1,3 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the pg gem is defined in your Gemfile
-#   gem "pg"
-#
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -15,9 +9,9 @@ development:
 
 test:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: ecommerce_test
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-# database: path/to/persistent/storage/production.sqlite3
+  url: <%= ENV["DATABASE_URL"] %>
