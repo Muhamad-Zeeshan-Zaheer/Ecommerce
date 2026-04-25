@@ -29,6 +29,13 @@
               </div>
 
               <div class="col-md-6">
+                <%= form.label :category_id, class: "form-label fw-semibold" %>
+                <%= form.collection_select :category_id, Category.all, :id, :name,
+                    { prompt: "Select a category" },
+                    { class: "form-select form-select-lg" } %>
+              </div>
+
+              <div class="col-md-6">
                 <%= form.label :price, class: "form-label fw-semibold" %>
                 <div class="input-group">
                   <span class="input-group-text">$</span>

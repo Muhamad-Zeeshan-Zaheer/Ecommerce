@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, only: [ :edit, :update, :destroy ]
   def index
-    @products = Product.all
+    @categories = Category.all
   end
 
   def new
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock_quantity, :sku)
+    params.require(:product).permit(:name, :sku, :price, :stock_quantity, :description, :category_id)
   end
 
   def set_product
