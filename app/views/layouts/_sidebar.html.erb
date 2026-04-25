@@ -37,9 +37,17 @@
   </ul>
 
   <!-- Bottom User -->
-  <div class="mt-auto pt-3 border-top border-secondary d-flex align-items-center">
-    <img src="https://i.pravatar.cc/40" class="user-img me-2">
-    <span>mdo</span>
+  <div class="mt-auto pt-3 border-top border-secondary">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path,
+            data: { turbo_method: :delete },
+            class: "nav-link text-white" do %>
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        <% end %>
+      </li>
+    </ul>
   </div>
 
 </div>
@@ -48,7 +56,7 @@
 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileSidebar">
 
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title">Sidebar</h5>
+    <h5 class="offcanvas-title">Ecommerce</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
   </div>
 
@@ -57,41 +65,34 @@
     <ul class="nav flex-column">
 
       <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white" do %>
+        <%= link_to root_path, class: "nav-link text-white active" do %>
           <i class="bi bi-house-door"></i>
           <span>Home</span>
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white" do %>
-          <i class="bi bi-speedometer2"></i>
-          <span>Dashboard</span>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white" do %>
-          <i class="bi bi-table"></i>
-          <span>Orders</span>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white" do %>
+        <%= link_to products_path, class: "nav-link text-white" do %>
           <i class="bi bi-grid"></i>
           <span>Products</span>
         <% end %>
       </li>
 
-      <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white" do %>
-          <i class="bi bi-people"></i>
-          <span>Customers</span>
-        <% end %>
-      </li>
-
     </ul>
+
+    <!-- Bottom User -->
+    <div class="mt-auto pt-3 border-top border-secondary">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path,
+              data: { turbo_method: :delete },
+              class: "nav-link text-white" do %>
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </div>
