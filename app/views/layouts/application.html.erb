@@ -19,8 +19,11 @@
   </head>
 
   <body>
+    <%= render "layouts/sidebar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <main class="main-content">
+      <%= yield %>
+    </main>
   </body>
 </html>
