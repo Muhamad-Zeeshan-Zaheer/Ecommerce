@@ -1,0 +1,23 @@
+<div class="flash-wrapper position-fixed top-0 end-0 p-3" style="z-index: 1080; min-width: 320px;">
+
+  <% flash.each do |type, message| %>
+    <% bootstrap_class =
+      case type.to_sym
+      when :notice then "success"
+      when :alert then "danger"
+      when :error then "danger"
+      else "primary"
+      end
+    %>
+
+    <div class="alert alert-<%= bootstrap_class %> alert-dismissible fade show shadow mb-2 auto-dismiss" role="alert">
+      <%= message %>
+
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"></button>
+    </div>
+  <% end %>
+
+</div>

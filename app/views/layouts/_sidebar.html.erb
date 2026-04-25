@@ -1,0 +1,104 @@
+<!-- app/views/layouts/_sidebar.html.erb -->
+<% if user_signed_in? %>
+  <!-- Mobile Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-3 d-lg-none">
+    <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <span class="navbar-brand mb-0">Ecommerce</span>
+  </nav>
+
+  <!-- Desktop Sidebar -->
+  <div class="sidebar d-none d-lg-flex flex-column text-white p-3">
+    <!-- Logo -->
+    <div class="d-flex align-items-center pb-3 border-bottom border-secondary">
+      <h4 class="ms-2 mb-0">Ecommerce</h4>
+    </div>
+
+    <!-- Menu -->
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item">
+        <%= link_to root_path, class: "nav-link active" do %>
+          <i class="bi bi-house-door"></i>
+          <span>Home</span>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to products_path, class: "nav-link" do %>
+          <i class="bi bi-grid"></i>
+          <span>Products</span>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to categories_path, class: "nav-link" do %>
+          <i class="bi bi-folder"></i>
+          <span>Categories</span>
+        <% end %>
+      </li>
+    </ul>
+
+    <!-- Bottom User -->
+    <div class="mt-auto pt-3 border-top border-secondary">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path,
+              data: { turbo_method: :delete },
+              class: "nav-link text-white" do %>
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mobile Sidebar -->
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Ecommerce</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link text-white active" do %>
+            <i class="bi bi-house-door"></i>
+            <span>Home</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to products_path, class: "nav-link text-white" do %>
+            <i class="bi bi-grid"></i>
+            <span>Products</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to categories_path, class: "nav-link text-white" do %>
+            <i class="bi bi-folder"></i>
+            <span>Categories</span>
+          <% end %>
+        </li>
+      </ul>
+
+      <!-- Bottom User -->
+      <div class="mt-auto pt-3 border-top border-secondary">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path,
+                data: { turbo_method: :delete },
+                class: "nav-link text-white" do %>
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Logout</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

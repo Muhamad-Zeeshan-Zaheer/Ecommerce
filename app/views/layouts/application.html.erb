@@ -19,8 +19,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render "layouts/sidebar" %>
+    <%= render "layouts/flash" %>
+    <% if user_signed_in? %>
+      <main class="main-content">
+        <%= yield %>
+      </main>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
