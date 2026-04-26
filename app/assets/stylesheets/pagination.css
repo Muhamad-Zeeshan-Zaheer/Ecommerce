@@ -28,8 +28,27 @@
       color: #007bff;
       text-decoration: none; }
 
-/* Arrow styling for next/previous */
+/* Arrow styling for next/previous with Bootstrap icons */
 .apple_pagination .prev, .apple_pagination .next {
+  font-size: 0.9em;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apple_pagination .prev i, .apple_pagination .next i {
   font-size: 0.8em;
-  font-weight: bold;
+  line-height: 1;
+}
+
+.apple_pagination .prev:hover i,
+.apple_pagination .next:hover i {
+  color: #007bff;
+}
+
+.apple_pagination .disabled.prev i,
+.apple_pagination .disabled.next i {
+  color: #adb5bd;
+  opacity: 0.6;
 }
