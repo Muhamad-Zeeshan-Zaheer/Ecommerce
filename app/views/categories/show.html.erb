@@ -73,4 +73,11 @@
       </div>
     </div>
   <% end %>
+
+  <!-- Pagination -->
+  <% unless @products.empty? %>
+    <div class="d-flex justify-content-end mt-4">
+      <%= paginate_with_arrows @products %>
+    </div>
+  <% end %>
 </div>
