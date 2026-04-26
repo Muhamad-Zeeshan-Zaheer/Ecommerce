@@ -49,4 +49,11 @@
       </div>
     </div>
   <% end %>
+
+  <!-- Pagination -->
+  <% unless @categories.empty? %>
+    <div class="d-flex justify-content-end mt-4">
+      <%= paginate_with_arrows @categories %>
+    </div>
+  <% end %>
 </div>
