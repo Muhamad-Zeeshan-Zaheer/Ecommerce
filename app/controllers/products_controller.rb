@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, only: [ :edit, :update, :destroy ]
   def index
-    @categories = Category.all
+    @categories = Category.paginate(page: params[:page], per_page: 1)
   end
 
   def new

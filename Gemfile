@@ -59,5 +59,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
+# Authentication with Devise [
 gem "devise", "~> 5.0"
+#pagination with will_paginate
+gem 'will_paginate', '~> 4.0'
